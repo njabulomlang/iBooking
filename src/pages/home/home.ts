@@ -1,3 +1,4 @@
+import { ProfilePage } from './../profile/profile';
 import { HistoryPage } from './../history/history';
 import { LoginPage } from './../login/login';
 import { List } from './../book/list';
@@ -57,6 +58,9 @@ logout(){
     // An error happened.
   });
 
+}
+goProfile(){
+  this.navCtrl.push(ProfilePage);
 }
  /* async uploadImage(){
       try{

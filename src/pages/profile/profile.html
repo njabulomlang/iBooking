@@ -11,15 +11,26 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        <ion-label floating>Name</ion-label>
-        <ion-input type="text" [(ngModel)]="name"></ion-input>
-      </ion-item>
+  <ion-item >
+    <ion-label  floating>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="input1"></ion-input>
+  </ion-item>
 
-      <ion-item>
-          <ion-label floating>Surname</ion-label>
-          <ion-input type="text" [(ngModel)]="surname"></ion-input>
-        </ion-item>
+  <ion-item >
+      <ion-label  floating >Surname</ion-label>
+      <ion-input type="text" [(ngModel)]="input2"></ion-input>
+  </ion-item>
 
-        <button ion-button (click)="profile()" style="margin: 20px" color="light">Sign up</button>
+  <ion-item >
+    <ion-label  floating >Cell number</ion-label>
+    <ion-input type="tel" [(ngModel)]="input3"></ion-input>
+  </ion-item>
+
+  <ion-item >
+    <ion-label  floating>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="inputEmail"></ion-input>
+  </ion-item>
+
+
+<button ion-button (click)="updateProfile({name: input1 , surname: input2, cellno: input3, email: inputEmail})" color="secondary" style="margin: 20px"> Book</button>
 </ion-content>

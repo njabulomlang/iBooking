@@ -1,9 +1,8 @@
-import { HomePage } from './../home/home';
 import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
-import * as firebase from 'firebase';
+
 /**
  * Generated class for the LandingPage page.
  *
@@ -22,7 +21,7 @@ export class LandingPage {
   }
 
   ionViewWillLoad() {
-   
+
   }
 
   gotoRegister(){
