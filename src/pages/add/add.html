@@ -5,14 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title><button ion-button icon-only (click)="takePhoto(0)"><ion-icon name="attach"></ion-icon></button></ion-title>
+  <ion-navbar >
+    <ion-title>Add room</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div class="container">
+      <button ion-button clear (click)="takePhoto(0)">Attach photo<ion-icon name="attach"></ion-icon></button>
     <div class="uploadedImages">
+
       <img [src]="myphoto" alt="my uploadings" *ngIf="myphoto">
     </div>
     <ion-list>

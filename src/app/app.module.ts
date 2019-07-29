@@ -1,3 +1,4 @@
+
 import { HistoryPage } from './../pages/history/history';
 import { LandingPage } from './../pages/landing/landing';
 import { BookPage } from './../pages/book/book';
@@ -26,7 +27,8 @@ import { RegisterPage } from '../pages/register/register';
     AddPage,
     BookPage,
     LandingPage,
-    HistoryPage
+    HistoryPage,
+
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { RegisterPage } from '../pages/register/register';
     AddPage,
     BookPage,
     LandingPage,
-    HistoryPage
+    HistoryPage,
+
   ],
   providers: [
     StatusBar,

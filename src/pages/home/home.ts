@@ -1,7 +1,7 @@
 import { ProfilePage } from './../profile/profile';
 import { HistoryPage } from './../history/history';
-import { LoginPage } from './../login/login';
-import { List } from './../book/list';
+//import { LoginPage } from './../login/login';
+//import { List } from './../book/list';
 import { BookPage } from './../book/book';
 import { AddPage } from './../add/add';
 import { Component } from '@angular/core';
@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import * as firebase from 'firebase';
 import { snapshotToArray } from '../../app/environment';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { LandingPage } from '../landing/landing';
 
 
 @Component({
@@ -45,7 +46,9 @@ book(event, id){
 
 
 }
-
+del(key){
+  firebase.database().ref('rooms/'+key).remove();
+}
 goView(){
   this.navCtrl.push(HistoryPage);
 }
@@ -53,7 +56,7 @@ goView(){
 logout(){
   firebase.auth().signOut().then(() => {
     console.log('logged Out');
-     this.navCtrl.setRoot(LoginPage);
+     this.navCtrl.setRoot(LandingPage);
   }).catch(function(error) {
     // An error happened.
   });

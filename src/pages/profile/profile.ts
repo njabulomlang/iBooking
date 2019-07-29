@@ -20,20 +20,23 @@ export class ProfilePage {
 
   name;
   surname;
-  user ={} as user;
+  user;
   ref2 = firebase.database().ref('users/');
-  input1;
-  input2: string;
-  input3: string;
+  input1 = firebase.auth().currentUser.displayName;
+  input3 = firebase.auth().currentUser.phoneNumber;
   inputEmail = firebase.auth().currentUser.email;
   prof;
+  ref = firebase.database().ref('users/');
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-  }
+    this.ref.on('value', resp => {
+    this.user = snapshotToArray(resp);
+      
+        })
+      }
 
   ionViewDidLoad() {
-    this.ref2.on('value', resp => {
+    /* this.ref2.on('value', resp => {
       this.prof = snapshotToArray(resp);
       for(let i = firebase.auth().currentUser!=null; i<this.prof.length;){
       do{
@@ -45,7 +48,7 @@ export class ProfilePage {
 
       }
 
-  })
+  })*/
 
   }
 
@@ -55,7 +58,7 @@ export class ProfilePage {
       let newItem = this.ref2.push();
       newItem.set(item);
       this.input1 ='';
-      this.input2 ='';
+      this.input3 ='';
       this.inputEmail = '';
 
 

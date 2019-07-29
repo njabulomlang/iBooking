@@ -6,14 +6,16 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Payment</ion-title>
+    <ion-title>
+      Booking
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <ion-item >
-        <ion-label  floating>Booker</ion-label>
-        <ion-input type="text" [(ngModel)]="input1"></ion-input>
+        <ion-label  floating >Booker</ion-label>
+        <ion-input type="text" [(ngModel)]="input1" readonly></ion-input>
       </ion-item>
 
       <ion-item >
@@ -28,7 +30,7 @@
 
       <ion-item >
           <ion-label floating>Room price</ion-label>
-          <ion-input type="text" [(ngModel)]="input4"></ion-input>
+          <ion-input type="text" [(ngModel)]="input4" readonly></ion-input>
       </ion-item>
       <h2>Payments</h2>
 
@@ -37,12 +39,12 @@
     </ion-item>
       <ion-item >
         <ion-label floating>Card number</ion-label>
-        <ion-input type="text" [(ngModel)]="input5"></ion-input>
+        <ion-input type="text" [(ngModel)]="input5" maxlength="16"></ion-input>
     </ion-item>
 
     <ion-item >
       <ion-label floating>CVV</ion-label>
-      <ion-input type="text" [(ngModel)]="input6"></ion-input>
+      <ion-input type="text" [(ngModel)]="input6" maxlength="3"></ion-input>
   </ion-item>
 
  <button ion-button (click)="bookRoom({booker: input1 , in: input2, out: input3, amount: input4, cardno: input5, cvv: input6, paid: input7})" color="secondary" style="margin: 20px"> Book</button>

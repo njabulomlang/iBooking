@@ -11,12 +11,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list >
     <ion-item *ngFor="let item of bookings">
      <h3>{{ item.booker }}</h3>
       <p>R {{ item.paid }}</p>
       <p>From {{ item.in }} to
       {{ item.out }}</p>
+      <button ion-button  color="danger" (click)="del(item.key)" style="float: right;margin-top: -15%; border-radius: 50%"> <ion-icon ios="ios-close" md="md-close"></ion-icon></button>
     </ion-item>
   </ion-list>
 </ion-content>

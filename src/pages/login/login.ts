@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { HomePage } from '../home/home';
 /**
@@ -18,7 +18,7 @@ export class LoginPage {
 
   email;
   password;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loading: LoadingController) {
 
   }
 
@@ -27,11 +27,15 @@ export class LoginPage {
   }
   sign()
   {
+    let loaders = this.loading.create({
+      content: 'Please wait..',
+      duration: 3000});
+      loaders.present();
     firebase.auth().signInWithEmailAndPassword(this.email, this.password)
     .then( res =>{
 
       this.navCtrl.push(HomePage);
-      console.log(res);
+
 
 
 

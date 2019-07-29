@@ -1,8 +1,8 @@
 import { List } from './list';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController, LoadingController } from 'ionic-angular';
 import * as firebase from 'firebase';
-import { snapshotToArray } from '../../app/environment';
+
 
 
 
@@ -37,7 +37,7 @@ export class BookPage {
   input6 ;
   input7 ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams)
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public loading: LoadingController)
   {
 
     this.input4 =  this.navParams.data;
@@ -52,7 +52,7 @@ export class BookPage {
       var datein = new Date(this.input2).getDate();
       var dateout = new Date(this.input3).getDate();
       this.input7 = this.input4 * Number(dateout - datein);
-    
+
   }
 /*date(){
   var datein = new Date(this.input2).getDate();
@@ -66,7 +66,10 @@ export class BookPage {
 }*/
   bookRoom(item)
   {
-
+    let loaders = this.loading.create({
+      content: 'Please wait..',
+      duration: 3000});
+      loaders.present();
     if(item!==undefined && item!==null){
       let newItem = this.ref2.push();
       newItem.set(item);
@@ -79,7 +82,14 @@ export class BookPage {
       this.input7= '';
 
     }
+    const alert = this.alertCtrl.create({
+      title: 'Booking completed!',
+      subTitle: 'Your booking was successfully..',
+      buttons: ['OK']
+    });
+    alert.present();
   }
-}
+  }
+
 
 

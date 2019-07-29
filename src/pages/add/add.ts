@@ -37,10 +37,12 @@ export class AddPage {
   }
 
   createRooms(room: room) {
+
+    
     this.upload()
     let alert = this.alertCtrl.create({
-      title: 'adding a Hotel',
-      subTitle: 'successfully added!',
+      title: 'Adding room...',
+      subTitle: 'completed',
       buttons: ['Ok']
     })
    if(this.myphoto != '') {
@@ -59,7 +61,7 @@ export class AddPage {
    }else {
     let alert = this.alertCtrl.create({
       title: 'Warning!',
-      subTitle: 'Upload image first.',
+      subTitle: 'You must upload image first',
       buttons: ['Ok']
     })
     alert.present();
@@ -87,23 +89,21 @@ takePhoto(sourcetype: number) {
 }
 upload() {
   let loaders = this.loading.create({
-    content: 'Uploading',
+    content: 'Uploading...',
     duration: 3000
   })
+
+  loaders.present();
  // let storageRef = firebase.storage().ref();
   const filename = Math.floor(Date.now() / 1000);
   const imageRef = this.storageRef.child(`my-rooms/${filename}.jpg`);
-  loaders.present()
+
   imageRef.putString(this.myphoto, firebase.storage.StringFormat.DATA_URL)
   .then((snapshot) => {
     console.log('image uploaded');
     this.myphoto = snapshot.downloadURL
-    let alert = this.alertCtrl.create({
-      title: 'Image Upload',
-      subTitle: 'Image Uploaded to firebase',
-      buttons: ['Ok']
-    });
-    alert.present();
+
+   // loaders.present();
   })
 }
 

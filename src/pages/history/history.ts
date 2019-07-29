@@ -39,5 +39,8 @@ export class HistoryPage {
   ionViewDidLoad() {
   //  console.log();
   }
-
+  del( key)
+  {
+      firebase.database().ref('book/'+key).remove();
+  }
 }
