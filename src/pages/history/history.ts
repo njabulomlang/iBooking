@@ -17,9 +17,9 @@ import { snapshotToArray } from '../../app/environment';
 })
 export class HistoryPage {
   bookings = [];
-   
-  ref = firebase.database().ref('book/');
-  tbl;
+   //userID = firebase.auth().currentUser.uid;
+  ref = firebase.database().ref('book/' );
+ // tbl;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
      this.ref.on('value', resp => {

@@ -18,7 +18,8 @@ import { HomePage } from '../home/home';
   templateUrl: 'add.html',
 })
 export class AddPage {
-  ref = firebase.database().ref('rooms/');
+  userID = firebase.auth().currentUser.uid;
+  //ref = firebase.database().ref('rooms/' + this.userID );
   inputText: string ='';
   inputText1: string ='';
   inputText2: string ='';
@@ -26,7 +27,7 @@ export class AddPage {
 
 
    storageRef = firebase.storage().ref();
-   addRooms =  firebase.database().ref('rooms/');
+   addRooms =  firebase.database().ref('rooms/'  + this.userID);
    myphoto;
    room = {} as room;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, private camera: Camera, public loading: LoadingController) {
@@ -38,7 +39,7 @@ export class AddPage {
 
   createRooms(room: room) {
 
-    
+
     this.upload()
     let alert = this.alertCtrl.create({
       title: 'Adding room...',

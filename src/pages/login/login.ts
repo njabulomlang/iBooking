@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { HomePage } from '../home/home';
 /**
@@ -18,7 +18,7 @@ export class LoginPage {
 
   email;
   password;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loading: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loading: LoadingController, public alertCtrl: AlertController) {
 
   }
 
@@ -39,15 +39,22 @@ export class LoginPage {
 
 
 
+
+
     })
 
     .catch(function(error) {
 
-
+      const alert = this.alertCtrl.create({
+        title: error.code,
+        subTitle: error.message,
+        buttons: ['OK']
+      });
+      alert.present();
       // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode + errorMessage);
+     // var errorCode = error.code;
+    //  var errorMessage = error.message;
+//console.log(errorCode + errorMessage);
 
 
     });

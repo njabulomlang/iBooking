@@ -11,21 +11,29 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item >
+
+ <!-- <ion-item>
     <ion-label  floating>Full Name</ion-label>
-    <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+    <ion-input type="text" [(ngModel)]="name"></ion-input>
   </ion-item>
 
   <ion-item >
     <ion-label  floating >Cell number</ion-label>
-    <ion-input type="tel" [(ngModel)]="user.cellno"></ion-input>
+    <ion-input type="tel" [(ngModel)]="cellno"></ion-input>
   </ion-item>
 
   <ion-item >
     <ion-label  floating>Email</ion-label>
     <ion-input type="text" [(ngModel)]="inputEmail"></ion-input>
   </ion-item>
+-->
 
+<ion-list >
+  <ion-item *ngFor="let item of users">
+   <h3>{{ item.name }}</h3>
+    <p> {{ item.cellno }}</p>
+    <p>{{ item.email }} </p>
+  </ion-item>
 
-<button ion-button (click)="updateProfile({name: input1 , cellno: input3, email: inputEmail})" color="secondary" style="margin: 20px"> Save</button>
+</ion-list>
 </ion-content>

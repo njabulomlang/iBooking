@@ -1,7 +1,10 @@
-
+import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import * as firebase from 'firebase';
+import { ProfilePage } from '../profile/profile';
+
+
 
 /**
  * Generated class for the RegisterPage page.
@@ -16,16 +19,24 @@ import * as firebase from 'firebase';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+
   email;
   password;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+
+  ref = firebase.database().ref("/users")
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,private storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
   create(){
-    firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+    firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(res=>{
+      this.storage.set('userID', 'qwewdd');
+    this.navCtrl.push(ProfilePage);
+    })
+    //this.navCtrl.push(ProfilePage)
+
 
     .catch(function(error) {
      return error;

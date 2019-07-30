@@ -17,6 +17,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
 
+
 @NgModule({
   declarations: [
     MyApp,

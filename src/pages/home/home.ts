@@ -5,7 +5,7 @@ import { HistoryPage } from './../history/history';
 import { BookPage } from './../book/book';
 import { AddPage } from './../add/add';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { snapshotToArray } from '../../app/environment';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -19,9 +19,10 @@ import { LandingPage } from '../landing/landing';
 export class HomePage {
 
   rooms : any;
-  ref = firebase.database().ref('rooms/');
+  userID = firebase.auth().currentUser.uid;
+  ref = firebase.database().ref('rooms/' + this.userID);
   welcom = firebase.auth().currentUser.email;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController,private menu: MenuController) {
     this.ref.on('value', resp => {
       this.rooms = snapshotToArray(resp);
 
@@ -31,7 +32,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-   //console.log(firebase.auth().currentUser);
+  console.log(firebase.auth().currentUser);
 
 
   }
