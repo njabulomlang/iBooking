@@ -52,11 +52,22 @@ export class AddPage {
      RoomType: room.roomtype,
      Price: room.price,
      Description: room.description,
+     Contact: room.contact,
+     Features: room.features,
+     HotelName: room.hotelName,
+     location: room.location,
      image: this.myphoto
    });
     this.room.price = null;
     this.room.roomtype = '';
     this.room.description = '';
+    this.room.contact= '';
+
+    this.room.features='';
+
+    this.room.hotelName='';
+    this.room.location='';
+
    alert.present();
    this.navCtrl.setRoot(HomePage);
    }else {

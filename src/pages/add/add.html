@@ -30,6 +30,22 @@
         <ion-label floating>Description</ion-label>
        <ion-input type="text" [(ngModel)]="room.description"></ion-input>
     </ion-item>
+    <ion-item>
+        <ion-label floating>Contact details</ion-label>
+       <ion-input type="text" [(ngModel)]="room.contact"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Room features</ion-label>
+       <ion-input type="text" [(ngModel)]="room.features"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Own By</ion-label>
+     <ion-input type="text" [(ngModel)]="room.hotelName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Located</ion-label>
+   <ion-input type="text" [(ngModel)]="room.location"></ion-input>
+</ion-item>
     </ion-list>
     <button ion-button color="primary" (click)="createRooms(room)">Save</button>
   </div>
